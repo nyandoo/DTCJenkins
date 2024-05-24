@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'docker build -t dtcjenkins:latest'
+                sh 'docker build . -t latest'
             }
         }
     stage('push') {
