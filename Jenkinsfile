@@ -10,9 +10,9 @@ pipeline {
     stage('push') {
             steps {
                 withCredentials([usernamePassword(credentialsId: dockerHubCredentials, usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')])
-                {
-                    sh 'docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD'
-                    sh 'docker push dtcjenkins:latest .'
+                withCredentials([string(credentialsId: 'DockerHubPwd', variable: 'dockerpwd')]) {
+                    sh 'docker login -u username -p ${dockerpwd}'
+                    sh 'docker push dtcjenkins:latest .'                    
                 }
                     //some block
             }
