@@ -9,11 +9,14 @@ pipeline {
         }
     stage('push') {
             steps {
-                withCredentials([string(credentialsId: 'DockerHubPwd', variable: 'dockerpwd')]) {
-                    sh 'docker login -u username -p ${dockerpwd}'
-                    sh 'docker push dtcjenkins:latest .'                    
+                withCredentials([usernamePassword(credentialsId: 'test-credential', usernameVariable: 'username', passwordVariable: 'password')]) {
+                  sh 'echo $username'
+                  echo password
+                  echo "username is $username"
                 }
-                    //some block
+                    //sh 'docker login -u username -p ${dockerpwd}'
+                    //sh 'docker push dtcjenkins:latest .'                    
+                }
             }
         }
     }
