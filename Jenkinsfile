@@ -9,7 +9,8 @@ pipeline {
         }
     stage('push') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'test-credential', usernameVariable: 'username', passwordVariable: 'password')]) {
+                withCredentials([usernamePassword(credentialsId: 'test-credential', usernameVariable: 'username', passwordVariable: 'password')]) 
+                {
                   sh 'echo $username'
                   echo password
                   echo "username is $username"
@@ -20,4 +21,3 @@ pipeline {
             }
         }
     }
-}
