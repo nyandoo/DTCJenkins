@@ -1,5 +1,5 @@
 pipeline {
-    agent { dockerfile true }
+    agent { label manager1 }
     environment {
                 HOME = "${env.WORKSPACE}"
             }
