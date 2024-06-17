@@ -1,5 +1,7 @@
-pipeline {
-    agent any
+9pipeline {
+    agent {
+        label 'manager'
+    }
     environment {
                 HOME = "${env.WORKSPACE}"
     }
