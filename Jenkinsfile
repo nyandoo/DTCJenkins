@@ -12,7 +12,7 @@ pipeline {
         }
         stage('push') {
             steps {
-                    withCredentials([usernamePassword(credentialsId: 'c45c3f3f-21be-414d-9ad3-354206f7a898', passwordVariable: 'password', usernameVariable: 'username')]) 
+                    withCredentials([usernamePassword(credentialsId: 'ab2fd322-fb8e-41ba-928b-e454b89f28a5', passwordVariable: 'password', usernameVariable: 'username')]) 
                         {   
                             sh "docker login -u ${username} -p ${password}"
                             sh 'docker push nyando7/dtcjenkins:latest' 
