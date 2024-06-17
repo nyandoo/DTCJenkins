@@ -1,5 +1,5 @@
 pipeline {
-    agent { label manager }
+    agent any
     environment {
                 HOME = "${env.WORKSPACE}"
             }
