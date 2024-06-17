@@ -21,7 +21,7 @@ pipeline {
         }
         stage('deploy') {
             steps {
-                    sh 'docker run nyando7/dtcjenkins:latest'
+                    sh 'docker run -it nyando7/dtcjenkins:latest sh'
             }
         }
     }
